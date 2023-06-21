@@ -17,6 +17,18 @@ public class BankAccountManager {
 		}
 		return -1;
 	}
+	
+	public boolean isAcctInArray(int accountNum) {
+		for (int i = 0; i<accountArray.length; i++) {
+			if (accountArray[i] != null) {
+				if (accountArray[i].acctNum == accountNum) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public boolean isAcctNumUnique(int account) {
 		for (int i = 0; i<=accountArray.length; i++) {
 			if (accountArray[i].acctNum == account) {

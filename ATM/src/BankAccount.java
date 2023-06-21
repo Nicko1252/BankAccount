@@ -24,10 +24,20 @@ public class BankAccount {
 		log = log2;
 	}
 	
-	public BankAccount(String fName, String lName) {
+	public BankAccount(String fName2, String lName2) {
+
+		fName = fName2;
+		lName = lName2;
 		
+		pswd = genPswd(MAX_PASSWORD_LENGTH);
+		acctNum = genAcctNum(MAX_ACCOUNT_LENGTH);
+
 	}
 
+/*public BankAccount(int mAX_ACCOUNT_LENGTH2, int i, String string, String string2, int mAX_PSWD_LENGTH) {
+		
+	}*/
+	
 	public boolean deposit (double amt) {
 		if(amt == 0) {
 			return false;
@@ -105,7 +115,7 @@ public class BankAccount {
 		}
 	}
 
-	public static String genPswd(int MAX_PASSWORD_LENGTH) {
+	public String genPswd(int MAX_PASSWORD_LENGTH) {
 		String[] strArray = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 		String password="";
 
@@ -115,6 +125,10 @@ public class BankAccount {
 			int rValue = randomGen.nextInt(strArray.length);
 			password+=strArray[rValue];
 		}
+		
+		String addToLog = genTimeStamp()+"     Password Changed\n";
+		log += addToLog;
+
 
 		return password;
 
@@ -190,21 +204,23 @@ public class BankAccount {
 
 	public static void main(String[] args) {
 
-		int acctNum = genAcctNum(MAX_ACCOUNT_LENGTH);
+	/*	int acctNum = genAcctNum(MAX_ACCOUNT_LENGTH);
+	//	String pswd = genPswd(MAX_PASSWORD_LENGTH);
+	//	boolean newPswd = resetPswd(pswd, newPswd);
 		double balance = 0.0;
 		String fName = "Nick";
 		String lName = "Ostrowka";
-		String pswd = "nq3il";
+	//	String pswd = "nq3il";
 		String log = "";
-		BankAccount nick = new BankAccount(acctNum, balance, fName, lName, pswd, log);
-		BankAccount hamza = new BankAccount(acctNum, balance, fName, lName, pswd, log);
+		BankAccount nick = new BankAccount(fName, lName);
+		//BankAccount hamza = new BankAccount(acctNum, balance, fName, lName, pswd, log);
 		nick.display();
 		System.out.println("\n - - - - - - - - - - - - \n");
 		nick.deposit(100.0);
 		nick.widthdraw(100.0);
-		nick.resetPswd("nq3il", "88noZ");
-		nick.transferTo(100.0, hamza);
-		nick.display();
+	//	nick.resetPswd(pswd, pswd);
+		//nick.transferTo(100.0, hamza);
+		nick.display();*/
 
 
 	}
